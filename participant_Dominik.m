@@ -1,7 +1,7 @@
 function data = participant_Dominik()
 % PARTICIPANT_EXAMPLE  Vorlage für Teilnehmer-Dateien
-%   Halil Neues Kommentar 2
-%   -- this comment was wrong
+%  
+%   
 %   ANLEITUNG:
 %   1. Diese Datei kopieren als:  participant_[euer_vorname].m
 %      Beispiel: participant_anna.m
