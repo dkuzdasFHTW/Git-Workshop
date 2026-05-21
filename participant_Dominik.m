@@ -5,7 +5,7 @@ function data = participant_Dominik()
 %   ANLEITUNG:
 %   1. Diese Datei kopieren als:  participant_[euer_vorname].m
 %      Beispiel: participant_anna.m
-%
+%  % comment should be here
 %   2. Den Funktionsnamen anpassen:
 %      function data = participant_[euer_vorname]()
 %
