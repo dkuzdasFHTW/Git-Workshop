@@ -13,7 +13,6 @@ function run_workshop()
 %       data.x       - x-Werte für den Plot (numerischer Vektor)
 %       data.y       - y-Werte für den Plot (numerischer Vektor)
 %       data.color   - Farbe der Linie (String oder RGB-Tripel)
-%       data.unit    - Einheit / Beschriftung für Y-Achse (String)
 %       data.marker  - (optional) Plot-Marker, z.B. 'o', 's', '^'
 %       data.label   - (optional) Legendenbeschriftung (String)
 %
@@ -21,16 +20,11 @@ function run_workshop()
 %       1. Alle participant_*.m-Dateien werden mit dir() gesucht
 %       2. Jede Funktion wird mit feval() aufgerufen
 %       3. Datensätze werden in einem gemeinsamen Figure geplottet
-%
-%   Autoren:   Workshop-Team
-%   Version:   MATLAB R2025
-%   Datum:     2025
+
+
 
     clear; close all; clc;
     
-    fprintf('╔══════════════════════════════════════════╗\n');
-    fprintf('║   Git & MATLAB Workshop – Gemeinsam!     ║\n');
-    fprintf('╚══════════════════════════════════════════╝\n\n');
     
     %% ── 1. Alle Teilnehmer-Dateien finden ──────────────────────────────────
     files = dir(fullfile(fileparts(mfilename('fullpath')), 'participant_*.m'));
@@ -90,21 +84,13 @@ function run_workshop()
         'Position', [80, 80, 1100, 650], ...
         'Color',    'white' ...
     );
-    
-    ax = axes(fig);
-    hold(ax, 'on');
-    grid(ax, 'on');
-    box(ax,  'on');
-    ax.GridAlpha      = 0.25;
-    ax.GridLineStyle  = '--';
-    ax.FontSize       = 12;
-    ax.LineWidth      = 0.8;
+    hold on
     
     % Alle Datensätze plotten
     for i = 1:numel(allData)
         d = allData{i};
         
-        plot(ax, d.x, d.y, ...
+        plot(d.x, d.y, ...
              ['-', d.marker], ...
              'Color',       d.color, ...
              'LineWidth',   2.0, ...
@@ -116,33 +102,16 @@ function run_workshop()
     
     % Achsen & Beschriftungen
     % set(gca, 'YScale', 'log')
-    xlabel(ax, 'x');
-    ylabel(ax, 'Werte');
-    title(ax, sprintf('Git Workshop – %d Teilnehmer gemeinsam', numel(allData)), ...
+    xlabel( 'x');
+    ylabel( 'Werte');
+    title(sprintf('Git Workshop – %d Teilnehmer gemeinsam', numel(allData)), ...
           'FontSize', 16, 'FontWeight', 'bold');
     
-    legend(ax, 'Location', 'best', 'FontSize', 10);
+    legend( 'Location', 'best', 'FontSize', 10);
     
-    hold(ax, 'off');
+    hold off
     
-    %% ── 4. Statusausgabe ────────────────────────────────────────────────────
-    fprintf('\n════════════════════════════════════════════\n');
-    fprintf('  Plot enthält %d Datensätze:\n', numel(allData));
-    fprintf('────────────────────────────────────────────\n');
-    for i = 1:numel(allData)
-        d = allData{i};
-        fprintf('  %2d.  %-20s  (%d Punkte)\n', i, d.name, numel(d.x));
-    end
-    if ~isempty(failedFiles)
-        fprintf('\n  Fehlgeschlagen:\n');
-        for i = 1:numel(failedFiles)
-            fprintf('  ✗  %s\n', failedFiles{i});
-        end
-    end
-    fprintf('════════════════════════════════════════════\n');
-    fprintf('\nFertig! Schaut euch den Plot an.\n');
-    fprintf('Wenn neue Teilnehmer gepusht haben:\n');
-    fprintf('  1. git pull\n  2. run_workshop\n\n');
+
 end
 
 
@@ -173,8 +142,5 @@ function data = fillDefaults(data, funcName)
     end
     if ~isfield(data, 'label') || isempty(data.label)
         data.label = data.name;
-    end
-    if ~isfield(data, 'unit') || isempty(data.unit)
-        data.unit = 'Wert';
     end
 end

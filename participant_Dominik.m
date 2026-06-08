@@ -3,7 +3,7 @@ function data = participant_Dominik()
 %   initial state recovered
 %   ANLEITUNG:
 %   1. Diese Datei kopieren als:  participant_[euer_vorname].m
-%      Beispiel: participant_anna.m
+%      Beispiel: participant_otto.m
 %
 %   2. Den Funktionsnamen anpassen:
 %      function data = participant_[euer_vorname]()
@@ -36,16 +36,13 @@ function data = participant_Dominik()
     %           '#FF5733' (Hex), [0.2 0.5 0.8] (RGB 0..1)
     data.color  = [0.2, 0.5, 0.9];             % ← ÄNDERN (Blau als Beispiel)
 
-    % Einheit / Beschriftung (erscheint in der Ausgabe)
-    data.unit   = 'Daumenlaengen';          % ← ÄNDERN
-
     %% ── x-Werte: Unabhängige Variable ──────────────────────────────────────
     %   Beispiele:
     %     Zeit:        data.x = 0:0.1:2*pi;
     %     Messnummern: data.x = 1:10;
     %     Frequenzen:  data.x = [50, 100, 200, 500, 1000];
     
-    data.x = 1:10;                              % ← ANPASSEN
+    data.x = 1:10;                             
 
     %% ── y-Werte: Eure Messdaten ─────────────────────────────────────────────
     %   Sein kreativ! Möglichkeiten:
@@ -55,7 +52,7 @@ function data = participant_Dominik()
     %     Zufallswerte:    data.y = cumsum(randn(1, numel(data.x)));
     %     Eigene Messung:  data.y = [12.3, 13.1, 12.8, 14.2, 15.0, ...];
 
-    data.y = data.x .^ (2);                       % ← ANPASSEN (Quadratzahlen als Beispiel)
+    data.y = data.x.^ (2);                       % ← ANPASSEN (Quadratzahlen als Beispiel)
 
     %% ── Optionale Felder ────────────────────────────────────────────────────
 
@@ -63,6 +60,6 @@ function data = participant_Dominik()
     data.marker = 's';
 
     % Legendenbeschriftung (Standard: data.name)
-    data.label  = [data.name, ' – Messung'];
+    data.label  = [data.name, ', f(x) = x^2'];
 
 end
