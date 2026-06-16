@@ -34,7 +34,7 @@ function data = participant_Gerhard()
     % Farbe eurer Linie im Plot
     % Optionen: 'red', 'blue', 'green', 'magenta', 'cyan', 'black',
     %           '#FF5733' (Hex), [0.2 0.5 0.8] (RGB 0..1)
-    data.color  = [0.2, 1, 1];             % ← ÄNDERN (Blau als Beispiel)
+    data.color  = [0, 0, 1];             % ← ÄNDERN (Blau als Beispiel)
 
     %% ── x-Werte: Unabhängige Variable ──────────────────────────────────────
     %   Beispiele:
@@ -52,7 +52,7 @@ function data = participant_Gerhard()
     %     Zufallswerte:    data.y = cumsum(randn(1, numel(data.x)));
     %     Eigene Messung:  data.y = [12.3, 13.1, 12.8, 14.2, 15.0, ...];
 
-    data.y = data.x.^ (3);                       % ← ANPASSEN (Quadratzahlen als Beispiel)
+    data.y = exp(data.x).*sin(data.x);                       % ← ANPASSEN (Quadratzahlen als Beispiel)
 
     %% ── Optionale Felder ────────────────────────────────────────────────────
 
@@ -60,6 +60,6 @@ function data = participant_Gerhard()
     data.marker = 's';
 
     % Legendenbeschriftung (Standard: data.name)
-    data.label  = [data.name, ', f(x) = x^3'];
+    data.label  = [data.name, ', f(x) = e^x*sin x'];
 
 end
