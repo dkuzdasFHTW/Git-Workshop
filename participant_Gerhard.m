@@ -1,4 +1,4 @@
-function data = participant_Dominik()
+function data = participant_Gerhard()
 % PARTICIPANT_EXAMPLE  Vorlage für Teilnehmer-Dateien
 %   initial state recovered
 %   ANLEITUNG:
@@ -6,16 +6,16 @@ function data = participant_Dominik()
 %      Beispiel: participant_otto.m
 %
 %   2. Den Funktionsnamen anpassen:
-%      function data = participant_otto()
+%      function data = participant_[euer_vorname]()
 %
 %   3. Die Felder mit euren Daten befüllen.
 %
 %   4. In MATLAB testen:
-%      >> d = participant_otto();
+%      >> d = participant_[euer_vorname]();
 %      >> disp(d)
 %
 %   5. Committen & Pushen:
-%      $ git add participant_otto.m
+%      $ git add participant_[euer_vorname].m
 %      $ git commit -m "Add: Participant [Name] data"
 %      $ git push origin main
 %
@@ -29,12 +29,12 @@ function data = participant_Dominik()
     %% ── Pflichtfelder – bitte ausfüllen! ───────────────────────────────────
 
     % Euer Name (erscheint in Legende und Ausgabe)
-    data.name   = 'Dominik';            % ← ÄNDERN
+    data.name   = 'Gerhard';            % ← ÄNDERN
 
     % Farbe eurer Linie im Plot
     % Optionen: 'red', 'blue', 'green', 'magenta', 'cyan', 'black',
     %           '#FF5733' (Hex), [0.2 0.5 0.8] (RGB 0..1)
-    data.color  = 'r';             % ← ÄNDERN (Blau als Beispiel)
+    data.color  = [0.2, 1, 1];             % ← ÄNDERN (Blau als Beispiel)
 
     %% ── x-Werte: Unabhängige Variable ──────────────────────────────────────
     %   Beispiele:
@@ -52,7 +52,7 @@ function data = participant_Dominik()
     %     Zufallswerte:    data.y = cumsum(randn(1, numel(data.x)));
     %     Eigene Messung:  data.y = [12.3, 13.1, 12.8, 14.2, 15.0, ...];
 
-    data.y = 1./data.x;                       % ← ANPASSEN (Quadratzahlen als Beispiel)
+    data.y = data.x.^ (3);                       % ← ANPASSEN (Quadratzahlen als Beispiel)
 
     %% ── Optionale Felder ────────────────────────────────────────────────────
 
@@ -60,6 +60,6 @@ function data = participant_Dominik()
     data.marker = 's';
 
     % Legendenbeschriftung (Standard: data.name)
-    data.label  = [data.name, ', f(x) = 1/x'];
+    data.label  = [data.name, ', f(x) = x^3'];
 
 end

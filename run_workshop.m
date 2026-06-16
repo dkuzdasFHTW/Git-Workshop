@@ -101,12 +101,12 @@ function run_workshop()
     end
     
     % Achsen & Beschriftungen
-    % set(gca, 'YScale', 'log')
+    %set(gca, 'YScale', 'log')
     xlabel( 'x');
     ylabel( 'Werte');
     title(sprintf('Git Workshop – %d Teilnehmer gemeinsam', numel(allData)), ...
           'FontSize', 16, 'FontWeight', 'bold');
-    
+    ylim([0 100])
     legend( 'Location', 'best', 'FontSize', 10);
     
     hold off
