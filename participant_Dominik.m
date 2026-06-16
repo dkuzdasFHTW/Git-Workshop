@@ -1,4 +1,4 @@
-function data = participant_Dominik()
+function data = participant_Dominik() 
 % PARTICIPANT_EXAMPLE  Vorlage für Teilnehmer-Dateien
 %   initial state recovered
 %   ANLEITUNG:
